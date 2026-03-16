@@ -4,19 +4,19 @@ sys.path.append('sortingAlgos')
 sys.path.append('graphs')
 import time
 
-from testCaseGenerator import read_array
-from heapSort import heapSort
-from mergeSort import mergeSort
-from radixSort import radixSort
-# from bubbleSort import bubbleSort
-# from insertionSort import insertionSort
-# from selectionSort import selectionSort
-# from quickSort import quickSort
-# from quickSortMedian import quickSortMedian
-# from quickSortRandom import quickSortRandom
+from utils.testCaseGenerator import read_array
+from sortingAlgos.heapSort import heapSort
+from sortingAlgos.mergeSort import mergeSort
+from sortingAlgos.radixSort import radixSort
+from sortingAlgos.bubbleSort import bubbleSort
+from sortingAlgos.insertionSort import insertionSort
+from sortingAlgos.selectionSort import selectionSort
+# from sortingAlgos.quickSortFirst import quickSortFirst
+from sortingAlgos.quickSortMedian import quickSortMedian
+from sortingAlgos.quickSortRandom import quickSortRandom
 
-from plotter import plot_results
-from plotter import plot_comparisons
+from utils.plotter import plot_results
+from utils.plotter import plot_comparisons
 
 
 def time_sort(sort_func, arr):
@@ -42,7 +42,7 @@ def average_random_times(times, arrays_per_size=5):     # for each size of the a
 
 if __name__ == '__main__':
     sorts = [heapSort, mergeSort, radixSort
-            #  , bubbleSort, insertionSort, selectionSort, quickSort, quickSortMedian, quickSortRandom
+             , bubbleSort, insertionSort, selectionSort, quickSortMedian, quickSortRandom
             ]
 
     ascending_arrays = read_array('testcases/ascending_dataset.txt')
