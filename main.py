@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(10**6)   # to avoid RecursionError for large arrays in quicksort   
 sys.path.append('utils')
 sys.path.append('sortingAlgos')
 sys.path.append('graphs')
@@ -11,9 +12,7 @@ from sortingAlgos.radixSort import radixSort
 from sortingAlgos.bubbleSort import bubbleSort
 from sortingAlgos.insertionSort import insertionSort
 from sortingAlgos.selectionSort import selectionSort
-# from sortingAlgos.quickSortFirst import quickSortFirst
 from sortingAlgos.quickSortMedian import quickSortMedian
-from sortingAlgos.quickSortRandom import quickSortRandom
 
 from utils.plotter import plot_results
 from utils.plotter import plot_comparisons
@@ -41,8 +40,9 @@ def average_random_times(times, arrays_per_size=5):     # for each size of the a
     return averaged
 
 if __name__ == '__main__':
-    sorts = [heapSort, mergeSort, radixSort
-             , bubbleSort, insertionSort, selectionSort, quickSortMedian, quickSortRandom
+    sorts = [ quickSortMedian,
+             heapSort, mergeSort, radixSort
+             , bubbleSort, insertionSort, selectionSort,
             ]
 
     ascending_arrays = read_array('testcases/ascending_dataset.txt')
