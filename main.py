@@ -11,12 +11,11 @@ from sortingAlgos.radixSort import radixSort
 from sortingAlgos.bubbleSort import bubbleSort
 from sortingAlgos.insertionSort import insertionSort
 from sortingAlgos.selectionSort import selectionSort
-# from sortingAlgos.quickSortFirst import quickSortFirst
+from sortingAlgos.quickSortFirst import quickSortFirst
 from sortingAlgos.quickSortMedian import quickSortMedian
 from sortingAlgos.quickSortRandom import quickSortRandom
 
-from utils.plotter import plot_results
-from utils.plotter import plot_comparisons
+from utils.plotter import plot_all
 
 
 def time_sort(sort_func, arr):
@@ -42,7 +41,7 @@ def average_random_times(times, arrays_per_size=5):     # for each size of the a
 
 if __name__ == '__main__':
     sorts = [heapSort, mergeSort, radixSort
-             , bubbleSort, insertionSort, selectionSort, quickSortMedian, quickSortRandom
+             , bubbleSort, insertionSort, selectionSort, quickSortMedian, quickSortRandom, quickSortFirst
             ]
 
     ascending_arrays = read_array('testcases/ascending_dataset.txt')
@@ -88,10 +87,4 @@ if __name__ == '__main__':
         results[name]['random'] = average_random_times(results[name]['random'])
         results[name]['random_comparisons'] = average_random_times(results[name]['random_comparisons'])
 
-    plot_results(results, 'ascending', 'Best Case Runtime')
-    plot_results(results, 'descending', 'Worst Case Runtime')
-    plot_results(results, 'random', 'Average Case Runtime')
-
-    plot_comparisons(results, 'ascending', 'Comparisons - Best Case')
-    plot_comparisons(results, 'descending', 'Comparisons - Worst Case')
-    plot_comparisons(results, 'random', 'Comparisons - Average Case')
+    plot_all(results)

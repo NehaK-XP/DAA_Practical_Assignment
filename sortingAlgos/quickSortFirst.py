@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(10000)
+
 def quickSortFirst(arr):
     comparisons = [0]
 
